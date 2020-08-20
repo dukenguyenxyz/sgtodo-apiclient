@@ -1,0 +1,17 @@
+name: apiclient
+version: 0.1.0
+
+authors:
+  - Duke Nguyen <duke@place.technology>
+
+dependencies:
+  responsible:
+    github: place-labs/responsible
+
+targets:
+  apiclient:
+    main: src/apiclient.cr
+
+crystal: 0.35.1
+
+license: MIT
