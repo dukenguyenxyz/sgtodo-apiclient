@@ -17,7 +17,10 @@ describe Apiclient, focus: true do
     Apiclient.create(body).title.should eq(body["title"])
   end
 
-  # Need update method
+  it "should update a task" do
+    body = {"title" => "Go hiking", "completed" => false}
+    Apiclient.update(task.id, body).title.should eq(body["title"])
+  end
 
   it "should return a list of tasks" do
     # Apiclient.index.size.should eq(2)
