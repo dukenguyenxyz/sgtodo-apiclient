@@ -1,5 +1,9 @@
 version: 2.0
 shards:
+  ameba:
+    git: https://github.com/veelenga/ameba.git
+    version: 0.13.1
+
   responsible:
     git: https://github.com/place-labs/responsible.git
     version: 1.2.0
