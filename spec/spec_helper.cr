@@ -10,7 +10,7 @@ BODY2 = {"title" => "Finish spider-gazelle to do app", "completed" => true}
 
 BODY3 = {"title" => "Go hiking", "completed" => false}
 
-# # MOCKING: Comment out the whole following code if you want to disable mocking data and use the live url for testing
+# MOCKING: Comment out the whole following code if you want to disable mocking data and use the live url for testing
 
 require "webmock" # Mocking
 

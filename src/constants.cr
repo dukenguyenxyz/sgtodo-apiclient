@@ -1,4 +1,5 @@
 module App
-  SERVER_URI = "http://spidergazelle-todo.herokuapp.com/todos"
-  HEADERS    = {"Content-Type" => "application/json"}
+  SERVER_URL  = "http://spidergazelle-todo.herokuapp.com/todos"
+  SERVER_HOST = "spidergazelle-todo.herokuapp.com"
+  HEADERS     = {"Content-Type" => "application/json"}
 end

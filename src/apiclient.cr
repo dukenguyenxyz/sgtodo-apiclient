@@ -1,33 +1,36 @@
-# TODO: Write documentation for `Apiclient`
-
 require "./config.cr"
 
 module Apiclient
-  extend self
-
   VERSION = "0.1.0"
 
-  def index
-    ~HTTP::Client.get(url(), headers()) >> Array(ObjectReponse)
+  extend self
+
+  # Use a single stream
+  def open
+    HTTP::Client.new(App::SERVER_HOST)
   end
 
-  def show(todo_id)
-    ~HTTP::Client.get(url(todo_id.to_s), headers()) >> ObjectReponse
+  def index(client)
+    ~client.get(todo_path, headers()) >> Array(ObjectReponse)
   end
 
-  def destroy_all
-    ~HTTP::Client.delete(url(), headers()) >> Nil
+  def show(client, todo_id)
+    ~client.get(todo_path(todo_id), headers()) >> ObjectReponse
   end
 
-  def destroy(todo_id)
-    ~HTTP::Client.delete(url(todo_id.to_s), headers()) >> Nil
+  def destroy_all(client)
+    ~client.delete(todo_path, headers()) >> Nil
   end
 
-  def create(body)
-    ~HTTP::Client.post(url(), headers(), body.to_json) >> ObjectReponse
+  def destroy(client, todo_id)
+    ~client.delete(todo_path(todo_id), headers()) >> Nil
   end
 
-  def update(todo_id, body)
-    ~HTTP::Client.patch(url(todo_id.to_s), headers(), body.to_json) >> ObjectReponse
+  def create(client, body)
+    ~client.post(todo_path, headers(), body.to_json) >> ObjectReponse
+  end
+
+  def update(client, todo_id, body)
+    ~client.patch(todo_path(todo_id), headers(), body.to_json) >> ObjectReponse
   end
 end

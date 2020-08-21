@@ -1,5 +1,5 @@
 name: apiclient
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - Duke Nguyen <duke@place.technology>
@@ -7,11 +7,16 @@ authors:
 dependencies:
   responsible:
     github: place-labs/responsible
+    version: ~> 1.2.0
 
 development_dependencies:
   webmock:
     github: manastech/webmock.cr
     branch: master
+    version: ~> 0.13.0
+  ameba:
+    github: veelenga/ameba
+    version: ~> 0.13.1
 
 targets:
   apiclient:

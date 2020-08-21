@@ -1,11 +1,16 @@
 require "http/client" # require "crest" # Curl lib
+require "uri"
 require "json"
 require "responsible"
 
 require "./constants.cr"
 
 def url(path : String? = nil)
-  !path.nil? ? File.join(App::SERVER_URI, path) : App::SERVER_URI
+  path.nil? ? App::SERVER_URL : File.join(App::SERVER_URL, path)
+end
+
+def todo_path(todo_id : Int32? = nil)
+  todo_id.nil? ? "/todos" : "/todos/#{todo_id}"
 end
 
 def headers
