@@ -29,18 +29,24 @@ WebMocks are enabled by default in specs. To turn them off to test the live API,
 ### Params
 
 - Request object
-  id: String
-  body: {title : String, order : Int32?, completed : Bool}
+
+```crystal
+id: String
+body: {title : String, order : Int32?, completed : Bool}
+```
 
 - Response object
-  struct ObjectReponse
-    include JSON::Serializable
-    getter id : Int32
-    getter title : String
-    getter order : Int32?
-    getter completed : Bool
-    getter url : String
-  end
+
+```crystal
+struct ObjectReponse
+  include JSON::Serializable
+  getter id : Int32
+  getter title : String
+  getter order : Int32?
+  getter completed : Bool
+  getter url : String
+end
+```
 
 ## Contributing
 
