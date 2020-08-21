@@ -8,8 +8,7 @@ module Apiclient
   VERSION = "0.1.0"
 
   def index
-    # ~ ...  >> [] of ObjectReponse
-    HTTP::Client.get(url(), headers())
+    ~HTTP::Client.get(url(), headers()) >> Array(ObjectReponse)
   end
 
   def show(todo_id)
@@ -17,11 +16,11 @@ module Apiclient
   end
 
   def destroy_all
-    HTTP::Client.delete(url(), headers())
+    ~HTTP::Client.delete(url(), headers()) >> Nil
   end
 
   def destroy(todo_id)
-    HTTP::Client.delete(url(todo_id.to_s), headers())
+    ~HTTP::Client.delete(url(todo_id.to_s), headers()) >> Nil
   end
 
   def create(body)
