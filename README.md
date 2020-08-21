@@ -1,5 +1,7 @@
 # apiclient
 
+[![Build Status](https://travis-ci.org/dukeraphaelng/sgtodo-apiclient.svg?branch=master)](https://travis-ci.org/dukeraphaelng/sgtodo-apiclient)
+
 API Client for Interacting with [Spider-Gazelle To-do API](https://github.com/dukeraphaelng/spider-gazelle-todo)
 
 ## Installation
