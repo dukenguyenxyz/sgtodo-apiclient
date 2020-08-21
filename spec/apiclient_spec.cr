@@ -1,11 +1,12 @@
 require "./spec_helper"
 
 describe Apiclient, focus: true do
-  task = Apiclient.create({"title" => "Commute to work", "completed" => false})
+  task = Apiclient.create(BODY1)
 
   Spec.before_suite {
-    Apiclient.destroy_all
-    task = Apiclient.create({"title" => "Commute to work", "completed" => false})
+    # # Uncomment to disable webmock for live test
+    # Apiclient.destroy_all
+    # task = Apiclient.create(BODY1)
   }
 
   it "should find the task through id" do
@@ -13,13 +14,11 @@ describe Apiclient, focus: true do
   end
 
   it "should create a task" do
-    body = {"title" => "Finish spider-gazelle to do app", "completed" => true}
-    Apiclient.create(body).title.should eq(body["title"])
+    Apiclient.create(BODY2).title.should eq(BODY2["title"])
   end
 
   it "should update a task" do
-    body = {"title" => "Go hiking", "completed" => false}
-    Apiclient.update(task.id, body).title.should eq(body["title"])
+    Apiclient.update(task.id, BODY3).title.should eq(BODY3["title"])
   end
 
   it "should return a list of tasks" do
