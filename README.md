@@ -14,17 +14,21 @@ WebMocks are enabled by default in specs. To turn them off to test the live API,
 
 ### Methods
 
-- Get this list of all tasks `Apiclient.index`
+Spider-gazelle To-do API Client supports a single stream and re-uses HTTP connection. To open a stream, simply call `client = Apiclient.open`, the client variable is loaded as the first argument for all `Apiclient` module methods. The methods are listed as below:
 
-- Find a single task `Apiclient.show(:id)`
+- Get this list of all tasks `Apiclient.index(client)`
 
-- Create a task `Apiclient.create(:body)`
+- Find a single task `Apiclient.show(client, :id)`
 
-- Update a task `Apiclient.update(:id, :body)`
+- Create a task `Apiclient.create(client, :body)`
 
-- Destroy a task `Apiclient.destroy(:id)`
+- Update a task `Apiclient.update(client, :id, :body)`
 
-- Destroy all tasks `Apiclient.destroy_all`
+- Destroy a task `Apiclient.destroy(client, :id)`
+
+- Destroy all tasks `Apiclient.destroy_all(client)`
+
+When all operations are finished, simply call `client.close` to close the stream
 
 ### Params
 
