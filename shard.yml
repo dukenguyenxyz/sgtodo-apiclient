@@ -8,6 +8,11 @@ dependencies:
   responsible:
     github: place-labs/responsible
 
+development_dependencies:
+  webmock:
+    github: manastech/webmock.cr
+    branch: master
+
 targets:
   apiclient:
     main: src/apiclient.cr

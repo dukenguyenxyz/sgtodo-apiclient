@@ -8,11 +8,12 @@ module Apiclient
   VERSION = "0.1.0"
 
   def index
+    # ~ ...  >> [] of ObjectReponse
     HTTP::Client.get(url(), headers())
   end
 
   def show(todo_id)
-    HTTP::Client.get(url(todo_id.to_s), headers())
+    ~HTTP::Client.get(url(todo_id.to_s), headers()) >> ObjectReponse
   end
 
   def destroy_all
@@ -24,10 +25,10 @@ module Apiclient
   end
 
   def create(body)
-    HTTP::Client.post(url(), headers(), body.to_json)
+    ~HTTP::Client.post(url(), headers(), body.to_json) >> ObjectReponse
   end
 
   def update(todo_id, body)
-    HTTP::Client.patch(url(todo_id.to_s), headers(), body.to_json)
+    ~HTTP::Client.patch(url(todo_id.to_s), headers(), body.to_json) >> ObjectReponse
   end
 end

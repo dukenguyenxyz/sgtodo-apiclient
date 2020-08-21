@@ -1,8 +1,6 @@
-# Curl lib
-
-require "http/client" # require "crest"
+require "http/client" # require "crest" # Curl lib
 require "json"
-# require "responsible"
+require "responsible"
 
 require "./constants.cr"
 
@@ -17,4 +15,13 @@ def headers
   end
 
   head
+end
+
+struct ObjectReponse
+  include JSON::Serializable
+  getter id : Int32
+  getter title : String
+  getter order : Int32?
+  getter completed : Bool
+  getter url : String
 end
